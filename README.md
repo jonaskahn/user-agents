@@ -23,7 +23,10 @@ Small library random user-agent for jvm - Written in Kotlin
 
 ## Sample
 ```kotlin
+// Kotlin example
+
 fun main() {
+
     RandomUserAgent.random()
 
     RandomUserAgent.desktop(deviceType = DeviceType.MACOS)
@@ -45,5 +48,41 @@ fun main() {
     RandomUserAgent.mobile(deviceType = DeviceType.IOS, browserType = BrowserType.SAFARI)
 
     RandomUserAgent.mobile(deviceType = DeviceType.ANDROID, browserType = BrowserType.CHROME)
+}
+```
+
+```java
+// Java example
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        RandomUserAgent.INSTANCE.random();
+
+        RandomUserAgent.INSTANCE.desktop(null, null);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.WINDOWS, null);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.MACOS, null);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.LINUX, null);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.WINDOWS, BrowserType.CHROME);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.MACOS, BrowserType.SAFARI);
+
+        RandomUserAgent.INSTANCE.desktop(DeviceType.LINUX, BrowserType.FIREFOX);
+
+        RandomUserAgent.INSTANCE.mobile(null, null);
+
+        RandomUserAgent.INSTANCE.mobile(DeviceType.IOS, null);
+
+        RandomUserAgent.INSTANCE.mobile(DeviceType.ANDROID, null);
+
+        RandomUserAgent.INSTANCE.mobile(DeviceType.IOS, BrowserType.SAFARI);
+
+        RandomUserAgent.INSTANCE.mobile(DeviceType.ANDROID, BrowserType.FIREFOX);
+    }
 }
 ```
