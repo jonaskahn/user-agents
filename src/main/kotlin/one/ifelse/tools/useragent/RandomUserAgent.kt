@@ -8,10 +8,23 @@ object RandomUserAgent {
 
     private val random = ThreadLocalRandom.current()
 
+    /**
+     * Random a user-agent, result can be a {@link #desktop(DeviceType, BrowserType) desktop}
+     * or {@link #mobile(DeviceType, BrowserType) mobile} user-agent type
+     *
+     */
     fun random(): String {
         return if (random.nextBoolean()) desktop() else mobile()
     }
 
+    /**
+     * Generate a desktop(MacOS, Linux, Windows) user-agent
+     * @param deviceType DeviceType must be a valid type or null. If device type is mobile, an exception will be thrown.
+     * @param browserType BrowserType must be a valid type or null.
+     * @return {@link String}
+     * @see one.ifelse.tools.useragent.types.DeviceType
+     * @see one.ifelse.tools.useragent.types.BrowserType
+     */
     fun desktop(
         deviceType: DeviceType? = null,
         browserType: BrowserType? = null
@@ -119,6 +132,15 @@ object RandomUserAgent {
         }
     }
 
+
+    /**
+     * Generate a mobile(IOS, Android) user-agent
+     * @param deviceType DeviceType must be a valid type or null. If device type is desktop, an exception will be thrown.
+     * @param browserType BrowserType must be a valid type or null.
+     * @return {@link String}
+     * @see one.ifelse.tools.useragent.types.DeviceType
+     * @see one.ifelse.tools.useragent.types.BrowserType
+     */
     fun mobile(
         deviceType: DeviceType? = null,
         browserType: BrowserType? = null
