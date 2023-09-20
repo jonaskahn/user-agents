@@ -1,7 +1,7 @@
 # user-agents
 Small library random user-agent for jvm - Written in Kotlin 
 
-# 
+## update maven
 ```maven
     <repositories>
         <repository>
@@ -19,6 +19,9 @@ Small library random user-agent for jvm - Written in Kotlin
         </dependency>
     </dependencies>
 ```
+--------
+
+## Sample
 ```java
 import one.ifelse.tools.useragent.RandomUserAgent;
 
