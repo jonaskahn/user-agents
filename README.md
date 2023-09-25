@@ -3,13 +3,6 @@ Small library random user-agent for jvm - Written in Kotlin
 
 ## update maven
 ```maven
-    <repositories>
-        <repository>
-            <id>user-agents-repo</id>
-            <url>https://maven.pkg.github.com/jonaskahn/user-agents</url>
-        </repository>
-    </repositories>
-    
     
     <dependencies>
         <dependency>
