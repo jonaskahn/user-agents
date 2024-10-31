@@ -23,11 +23,10 @@ class RandomUserAgentTests {
     @Test
     fun testRandomUserAgentDeviceNotExists() {
         try {
-            val result = RandomUserAgent.random({ Objects.equals(it.platform, "Win64") })
+            RandomUserAgent.random({ Objects.equals(it.platform, "Win64") })
             assertFails(message = "should never execute this block") {}
         } catch (e: NoSuchElementException) {
             assertEquals("Collection is empty.", e.message)
         }
-
     }
 }

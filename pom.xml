@@ -11,13 +11,28 @@
 
     <name>Random User Agents</name>
     <description>Simple library to generate random user-agent for JVM application</description>
+    <url>https://github.com/jonaskahn/user-agents</url>
 
+    <scm>
+        <url>https://github.com/jonaskahn/user-agents</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>jonaskahn</id>
+            <name>Jonas Kahn</name>
+            <email>me@ifelse.one</email>
+            <organization>IfelseDotOne Studio</organization>
+        </developer>
+    </developers>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
         <moshi.version>1.15.1</moshi.version>
     </properties>
+
 
     <repositories>
         <repository>
@@ -71,6 +86,15 @@
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.22.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.6.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
