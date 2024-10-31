@@ -1,20 +1,30 @@
 # user-agents
-Small library random user-agent for jvm - Written in Kotlin 
+
+Small library random user-agent for jvm - Written in Kotlin
 
 ## update maven
+
 ```maven
     
     <dependencies>
         <dependency>
             <groupId>one.ifelse.tools</groupId>
             <artifactId>user-agents</artifactId>
-            <version>0.0.1</version>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 ```
+
 --------
 
+## Note
+
+> Since v0.1.0, I switched to the new implementation, seed data now from [js version of
+`user-gents`](https://www.npmjs.com/package/user-agents) as seeds but not any lines of
+> codes.
+
 ## Sample
+
 ```kotlin
 // Kotlin example
 
@@ -22,25 +32,17 @@ fun main() {
 
     RandomUserAgent.random()
 
-    RandomUserAgent.desktop(deviceType = DeviceType.MACOS)
+    // platform
+    RandomUserAgent.random(listOf { it.platform == "Win32" })
+    RandomUserAgent.random(listOf { it.platform == "MacIntel" })
 
-    RandomUserAgent.desktop(deviceType = DeviceType.LINUX)
+    // device type
+    RandomUserAgent.random(listOf { it.deviceCategory == "desktop" })
+    RandomUserAgent.random(listOf { it.deviceCategory == "mobile" })
+    RandomUserAgent.random(listOf { it.deviceCategory == "tablet" })
 
-    RandomUserAgent.desktop(deviceType = DeviceType.WINDOWS)
-
-    RandomUserAgent.desktop(deviceType = DeviceType.MACOS, browserType = BrowserType.SAFARI)
-
-    RandomUserAgent.desktop(deviceType = DeviceType.LINUX, browserType = BrowserType.FIREFOX)
-
-    RandomUserAgent.desktop(deviceType = DeviceType.WINDOWS, browserType = BrowserType.CHROME)
-
-    RandomUserAgent.mobile(deviceType = DeviceType.IOS)
-
-    RandomUserAgent.mobile(deviceType = DeviceType.ANDROID)
-    
-    RandomUserAgent.mobile(deviceType = DeviceType.IOS, browserType = BrowserType.SAFARI)
-
-    RandomUserAgent.mobile(deviceType = DeviceType.ANDROID, browserType = BrowserType.CHROME)
+    // brower type
+    RandomUserAgent.random(listOf { it.userAgent.contains("Safari", true) })
 }
 ```
 
@@ -50,32 +52,6 @@ fun main() {
 public class Main {
 
     public static void main(String[] args) {
-
-        RandomUserAgent.INSTANCE.random();
-
-        RandomUserAgent.INSTANCE.desktop(null, null);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.WINDOWS, null);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.MACOS, null);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.LINUX, null);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.WINDOWS, BrowserType.CHROME);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.MACOS, BrowserType.SAFARI);
-
-        RandomUserAgent.INSTANCE.desktop(DeviceType.LINUX, BrowserType.FIREFOX);
-
-        RandomUserAgent.INSTANCE.mobile(null, null);
-
-        RandomUserAgent.INSTANCE.mobile(DeviceType.IOS, null);
-
-        RandomUserAgent.INSTANCE.mobile(DeviceType.ANDROID, null);
-
-        RandomUserAgent.INSTANCE.mobile(DeviceType.IOS, BrowserType.SAFARI);
-
-        RandomUserAgent.INSTANCE.mobile(DeviceType.ANDROID, BrowserType.FIREFOX);
     }
 }
 ```
