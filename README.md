@@ -33,16 +33,19 @@ fun main() {
     RandomUserAgent.random()
 
     // platform
-    RandomUserAgent.random(listOf { it.platform == "Win32" })
-    RandomUserAgent.random(listOf { it.platform == "MacIntel" })
+    RandomUserAgent.random { it.platform == "Win32" }
+    RandomUserAgent.random { it.platform == "MacIntel" }
 
     // device type
-    RandomUserAgent.random(listOf { it.deviceCategory == "desktop" })
-    RandomUserAgent.random(listOf { it.deviceCategory == "mobile" })
-    RandomUserAgent.random(listOf { it.deviceCategory == "tablet" })
+    RandomUserAgent.random { it.deviceCategory == "desktop" }
+    RandomUserAgent.random { it.deviceCategory == "mobile" }
+    RandomUserAgent.random { it.deviceCategory == "tablet" }
 
-    // brower type
-    RandomUserAgent.random(listOf { it.userAgent.contains("Safari", true) })
+    // browser type
+    RandomUserAgent.random { it.userAgent.contains("Safari", true) }
+
+    // multiple filter
+    RandomUserAgent.random({ it.platform == "Win32" }, { it.userAgent.contains("Mozilla", true) })
 }
 ```
 
@@ -52,6 +55,26 @@ fun main() {
 public class Main {
 
     public static void main(String[] args) {
+
+        RandomUserAgent.INSTANCE.random();
+
+        // platform
+        RandomUserAgent.INSTANCE.random(userAgent -> Objects.equals(userAgent.getPlatform(), "Win32"));
+        RandomUserAgent.INSTANCE.random(userAgent -> Objects.equals(userAgent.getPlatform(), "MacIntel"));
+
+        // device type
+        RandomUserAgent.INSTANCE.random(userAgent -> Objects.equals(userAgent.getDeviceCategory(), "desktop"));
+        RandomUserAgent.INSTANCE.random(userAgent -> Objects.equals(userAgent.getDeviceCategory(), "mobile"));
+        RandomUserAgent.INSTANCE.random(userAgent -> Objects.equals(userAgent.getDeviceCategory(), "tablet"));
+
+        // browser type
+        RandomUserAgent.INSTANCE.random(userAgent -> userAgent.getUserAgent().contains("Safari"));
+
+        // multiple filter
+        RandomUserAgent.INSTANCE.random(
+                userAgent -> Objects.equals(userAgent.getDeviceCategory(), "mobile"),
+                userAgent -> userAgent.getUserAgent().contains("Mozilla")
+        );
     }
 }
 ```
