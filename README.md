@@ -21,7 +21,7 @@ Small library random user-agent for jvm - Written in Kotlin
 
 > Since v0.1.0, I switched to the new implementation, seed data now from [js version of
 `user-gents`](https://www.npmjs.com/package/user-agents), but not any lines of
-> codes.
+> code.
 
 ## Sample
 
