@@ -5,22 +5,22 @@ Small library random user-agent for jvm - Written in Kotlin
 ## update maven
 
 ```maven
-    
+
     <dependencies>
         <dependency>
             <groupId>one.ifelse.tools</groupId>
             <artifactId>user-agents</artifactId>
-            <version>0.1.0</version>
+            <version>v0.1.1</version>
         </dependency>
     </dependencies>
 ```
 
---------
+---
 
 ## Note
 
-> Since v0.1.0, I switched to the new implementation, seed data now from [js version of
-`user-gents`](https://www.npmjs.com/package/user-agents) as seeds but not any lines of
+> Since vv0.1.1, I switched to the new implementation, seed data now from [js version of
+> `user-gents`](https://www.npmjs.com/package/user-agents) as seeds but not any lines of
 > codes.
 
 ## Sample
