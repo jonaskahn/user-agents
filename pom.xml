@@ -6,7 +6,7 @@
 
     <artifactId>user-agents</artifactId>
     <groupId>one.ifelse.tools</groupId>
-    <version>v0.1.1</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>Random User Agents</name>
@@ -40,7 +40,7 @@
             <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
