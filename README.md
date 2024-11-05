@@ -5,7 +5,6 @@ Small library random user-agent for jvm - Written in Kotlin
 ## update maven
 
 ```maven
-
     <dependencies>
         <dependency>
             <groupId>one.ifelse.tools</groupId>
