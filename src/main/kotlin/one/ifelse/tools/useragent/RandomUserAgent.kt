@@ -2,6 +2,12 @@ package one.ifelse.tools.useragent
 
 import one.ifelse.tools.useragent.types.UserAgent
 
+/**
+ * A random user-agent generator.
+ *
+ * @author JonasKahn
+ * @since 0.0.1
+ */
 object RandomUserAgent {
 
     /**

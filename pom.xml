@@ -35,12 +35,10 @@
         <url>https://github.com/jonaskahn/user-agents</url>
     </scm>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
-        <moshi.version>1.15.1</moshi.version>
     </properties>
 
     <repositories>
@@ -56,11 +54,12 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
-                        <id>attach-javadocs</id>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -68,9 +67,25 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.jetbrains.dokka</groupId>
+                <artifactId>dokka-maven-plugin</artifactId>
+                <version>1.9.20</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>javadocJar</goal>
+                        </goals>
+                        <configuration>
+                            <outputDir>${project.build.directory}/dokka</outputDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.2.3</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -91,19 +106,6 @@
                     <autoPublish>true</autoPublish>
                     <waitUntil>published</waitUntil>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
@@ -151,7 +153,7 @@
         <dependency>
             <groupId>com.squareup.moshi</groupId>
             <artifactId>moshi-kotlin</artifactId>
-            <version>${moshi.version}</version>
+            <version>1.15.1</version>
         </dependency>
 
         <dependency>
